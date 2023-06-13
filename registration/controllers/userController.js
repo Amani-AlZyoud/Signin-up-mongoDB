@@ -25,7 +25,7 @@ const SignUp = async (req, res) => {
   User.find()
     .then((data) => {
       data.map((user) => {
-        if (user.email === email) res.json("Email already taken.");
+        if (user.email === email) return res.json("Email already taken.");
       });
     })
     .catch((error) => {
